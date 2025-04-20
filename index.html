@@ -3,24 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instant Arrival Roadside Assistance | 24/7 Nationwide Coverage</title>
-    <meta name="description" content="Premium roadside assistance memberships with instant dispatch. Choose from our affordable plans with unmatched service guarantees.">
+    <title>Instant Arrival Roadside Assistance & Towing | 24/7 Fast Nationwide Help</title>
+    <meta name="description" content="America's fastest roadside assistance & towing service. Get help in under 30 minutes guaranteed! Jump starts, lockouts, flat tires, fuel delivery, and long-distance towing.">
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="roadside assistance, towing service, 24/7 towing, jump start service, lockout service, flat tire help, fuel delivery, long distance towing">
+    <meta property="og:title" content="Instant Arrival Roadside Assistance & Towing">
+    <meta property="og:description" content="Get help fast with our 24/7 roadside assistance memberships. Average response time under 30 minutes guaranteed!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://instantarrival.com">
+    <meta property="og:image" content="https://instantarrival.com/images/hero-bmw.jpg">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Square Payment Form SDK -->
+    <!-- Square Payment SDK -->
     <script src="https://js.squareup.com/v2/paymentform"></script>
     <style>
         :root {
-            --primary: #FF5F00;
-            --secondary: #003366;
-            --accent: #00CC99;
+            --primary: #FF5F00; /* Vibrant orange - urgency/action */
+            --secondary: #003366; /* Trustworthy navy */
+            --accent: #00CC99; /* Fresh green - positive */
             --light: #F8F9FA;
             --dark: #212529;
             --gray: #6C757D;
         }
         
+        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -37,12 +48,18 @@
         h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
+            line-height: 1.2;
         }
         
-        /* Header Styles */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Header */
         header {
             background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             z-index: 1000;
@@ -95,48 +112,75 @@
         .cta-button {
             background-color: var(--primary);
             color: white;
-            padding: 10px 25px;
+            padding: 12px 25px;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
             display: inline-block;
+            border: 2px solid transparent;
         }
         
         .cta-button:hover {
-            background-color: #e55600;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 95, 0, 0.3);
+            background-color: white;
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 95, 0, 0.2);
         }
-
-        /* Hero Section */
+        
+        /* Hero Section - Updated with BMW Image */
         .hero {
-            background: linear-gradient(135deg, var(--secondary) 0%, #001a33 100%);
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.9)), 
+                        url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 180px 0 100px;
+            padding: 200px 0 120px;
             text-align: center;
         }
         
         .hero-container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
         .hero h1 {
-            font-size: 48px;
+            font-size: 52px;
             margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .hero p {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 30px;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0.9;
         }
         
-        /* Features Section */
+        /* Guarantee Badge */
+        .guarantee-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: white;
+            color: var(--secondary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .guarantee-badge i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        /* Features Section - More Visual */
         .features {
             padding: 100px 0;
             background-color: var(--light);
@@ -148,7 +192,7 @@
         }
         
         .section-title h2 {
-            font-size: 36px;
+            font-size: 42px;
             color: var(--secondary);
             margin-bottom: 15px;
         }
@@ -157,6 +201,7 @@
             color: var(--gray);
             max-width: 700px;
             margin: 0 auto;
+            font-size: 18px;
         }
         
         .features-grid {
@@ -171,28 +216,41 @@
         .feature-card {
             background-color: white;
             border-radius: 10px;
-            padding: 30px;
+            padding: 40px 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+            transition: all 0.3s;
             text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         .feature-icon {
-            font-size: 50px;
-            color: var(--primary);
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(0, 204, 153, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .feature-icon i {
+            font-size: 36px;
+            color: var(--accent);
         }
         
         .feature-card h3 {
             margin-bottom: 15px;
             color: var(--secondary);
+            font-size: 22px;
         }
         
-        /* Pricing Section */
+        /* Pricing Section - 4 Tiers */
         .pricing {
             padding: 100px 0;
             background-color: white;
@@ -213,12 +271,13 @@
             padding: 40px 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             border: 1px solid #eee;
+            transition: all 0.3s;
             position: relative;
         }
         
         .pricing-card.popular {
             border: 2px solid var(--primary);
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
         
         .popular-badge {
@@ -227,10 +286,11 @@
             right: 20px;
             background-color: var(--primary);
             color: white;
-            padding: 5px 15px;
+            padding: 5px 20px;
             border-radius: 50px;
             font-size: 14px;
             font-weight: 600;
+            text-transform: uppercase;
         }
         
         .pricing-card h3 {
@@ -243,7 +303,7 @@
             font-size: 48px;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         
         .price span {
@@ -258,7 +318,7 @@
         }
         
         .pricing-features li {
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #eee;
             display: flex;
             align-items: center;
@@ -267,138 +327,10 @@
         .pricing-features li i {
             color: var(--accent);
             margin-right: 10px;
+            font-size: 14px;
         }
         
-        /* Signup Form */
-        .signup-form {
-            background-color: var(--light);
-            padding: 80px 0;
-        }
-        
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        
-        .form-header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .form-header h2 {
-            font-size: 28px;
-        }
-        
-        .form-body {
-            padding: 40px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .form-row .form-group {
-            flex: 1;
-        }
-        
-        .plan-selector {
-            margin-bottom: 30px;
-        }
-        
-        .plan-options {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .plan-option {
-            flex: 1;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-        
-        .plan-option:hover {
-            border-color: var(--accent);
-        }
-        
-        .plan-option.selected {
-            border-color: var(--primary);
-            background-color: rgba(255, 95, 0, 0.05);
-        }
-        
-        .plan-option h4 {
-            margin-bottom: 5px;
-            color: var(--secondary);
-        }
-        
-        .plan-option .price {
-            font-size: 20px;
-            color: var(--primary);
-        }
-        
-        /* Square Payment Inputs */
-        .sq-input {
-            border: 1px solid #ddd !important;
-            padding: 12px !important;
-            margin-bottom: 15px !important;
-            border-radius: 5px !important;
-            width: 100% !important;
-            font-size: 16px !important;
-        }
-        
-        .submit-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: #e55600;
-        }
-        
-        /* Testimonials */
+        /* Testimonials - More Visual */
         .testimonials {
             padding: 100px 0;
             background-color: var(--secondary);
@@ -413,15 +345,29 @@
         
         .testimonial-card {
             background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
+            padding: 40px;
             border-radius: 10px;
             margin-bottom: 30px;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            font-family: Georgia, serif;
+            font-size: 120px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: rgba(255, 255, 255, 0.1);
+            line-height: 1;
         }
         
         .testimonial-text {
-            font-size: 18px;
+            font-size: 20px;
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
         }
         
         .testimonial-author {
@@ -430,15 +376,17 @@
         }
         
         .author-img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
             margin-right: 15px;
+            border: 3px solid var(--accent);
         }
         
         .author-info h4 {
             margin-bottom: 5px;
+            font-size: 18px;
         }
         
         .author-info p {
@@ -460,46 +408,210 @@
         
         .accordion-item {
             margin-bottom: 15px;
-            border-radius: 5px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            background-color: white;
         }
         
         .accordion-header {
-            background-color: white;
-            padding: 20px;
+            padding: 25px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 18px;
+            transition: background-color 0.3s;
         }
         
         .accordion-header:hover {
             background-color: #f9f9f9;
         }
         
+        .accordion-header i {
+            transition: transform 0.3s;
+        }
+        
+        .accordion-item.active .accordion-header i {
+            transform: rotate(180deg);
+        }
+        
         .accordion-content {
-            padding: 0 20px;
+            padding: 0 25px;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
-            background-color: white;
         }
         
         .accordion-content-inner {
-            padding: 20px 0;
+            padding: 0 0 25px;
         }
         
         .accordion-item.active .accordion-content {
             max-height: 500px;
         }
         
+        /* Signup Form with Square Payment */
+        .signup-form {
+            background-color: var(--light);
+            padding: 100px 0;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, var(--secondary), #001a33);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .form-header h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .form-header p {
+            opacity: 0.9;
+        }
+        
+        .form-body {
+            padding: 40px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 95, 0, 0.2);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .plan-selector {
+            margin-bottom: 30px;
+        }
+        
+        .plan-selector label {
+            font-size: 18px;
+        }
+        
+        .plan-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .plan-option {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 20px 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .plan-option:hover {
+            border-color: var(--accent);
+        }
+        
+        .plan-option.selected {
+            border-color: var(--primary);
+            background-color: rgba(255, 95, 0, 0.05);
+        }
+        
+        .plan-option h4 {
+            margin-bottom: 5px;
+            color: var(--secondary);
+            font-size: 18px;
+        }
+        
+        .plan-option .price {
+            font-size: 22px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        /* Square Payment Inputs */
+        #sq-card-container {
+            margin: 25px 0;
+        }
+        
+        .sq-input {
+            border: 1px solid #ddd !important;
+            padding: 15px !important;
+            margin-bottom: 15px !important;
+            border-radius: 8px !important;
+            width: 100% !important;
+            font-size: 16px !important;
+            transition: all 0.3s !important;
+        }
+        
+        .sq-input--focus {
+            border-color: var(--primary) !important;
+            box-shadow: 0 0 0 3px rgba(255, 95, 0, 0.2) !important;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #e55600;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 95, 0, 0.3);
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 60px 0 20px;
+            padding: 80px 0 30px;
         }
         
         .footer-container {
@@ -507,21 +619,26 @@
             margin: 0 auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
         }
         
         .footer-logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             color: white;
             margin-bottom: 20px;
             display: inline-block;
         }
         
+        .footer-logo i {
+            color: var(--primary);
+        }
+        
         .footer-about p {
             opacity: 0.8;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            line-height: 1.7;
         }
         
         .social-links {
@@ -530,19 +647,42 @@
         }
         
         .social-links a {
-            color: white;
-            font-size: 20px;
-            transition: color 0.3s;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
         }
         
         .social-links a:hover {
-            color: var(--primary);
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .social-links i {
+            color: white;
+            font-size: 18px;
         }
         
         .footer-links h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 20px;
+            margin-bottom: 25px;
             color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
         }
         
         .footer-links ul {
@@ -550,48 +690,86 @@
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-links a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 16px;
         }
         
         .footer-links a:hover {
             color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .footer-contact h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-contact h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
         }
         
         .footer-contact p {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             opacity: 0.8;
+            font-size: 16px;
         }
         
         .footer-contact i {
-            margin-right: 10px;
+            margin-right: 15px;
             color: var(--primary);
+            font-size: 20px;
+            width: 25px;
+            text-align: center;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
+            padding-top: 50px;
+            margin-top: 50px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             opacity: 0.7;
             font-size: 14px;
         }
         
         /* Responsive Styles */
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             .hero h1 {
-                font-size: 36px;
+                font-size: 46px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero {
+                padding: 180px 0 100px;
             }
             
-            .plan-options {
-                flex-direction: column;
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .hero p {
+                font-size: 20px;
+            }
+            
+            .features-grid, .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
@@ -611,20 +789,51 @@
                 margin-right: 15px;
             }
             
+            .hero {
+                padding: 160px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .features-grid, .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .form-row {
                 flex-direction: column;
                 gap: 0;
             }
             
-            .hero {
-                padding: 150px 0 80px;
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
-            
+        }
+        
+        @media (max-width: 576px) {
             .hero h1 {
                 font-size: 32px;
             }
             
-            .hero p {
+            .section-title h2 {
+                font-size: 36px;
+            }
+            
+            .plan-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+            
+            .testimonial-text {
                 font-size: 18px;
             }
         }
@@ -640,8 +849,8 @@
             </a>
             <nav>
                 <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#features">Services</a></li>
+                    <li><a href="#pricing">Plans</a></li>
                     <li><a href="#testimonials">Reviews</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
@@ -650,72 +859,76 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with BMW Image -->
     <section class="hero">
         <div class="hero-container">
-            <h1>24/7 Nationwide Roadside Assistance</h1>
-            <p>Get peace of mind on the road with our fast, reliable service. Average response time under 30 minutes guaranteed.</p>
+            <h1>24/7 Roadside Assistance & Towing You Can Trust</h1>
+            <p>When your vehicle lets you down, we show up fast. <strong>Average response time under 30 minutes</strong> with our nationwide network of certified providers. Drive with confidence knowing help is always just a call away.</p>
             <a href="#signup" class="cta-button" style="margin-top: 20px;">Get Protected Today</a>
+            <div class="guarantee-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>30-Minute Response Guarantee</span>
+            </div>
         </div>
     </section>
 
     <!-- Features Section -->
     <section class="features" id="features">
         <div class="section-title">
-            <h2>Why Choose Instant Arrival?</h2>
-            <p>We're redefining roadside assistance with faster response times and better service</p>
+            <h2>Your Complete Roadside Protection</h2>
+            <p>Instant Arrival members enjoy these benefits 24/7, 365 days a year</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">
-                    <i class="fas fa-clock"></i>
+                    <i class="fas fa-truck"></i>
                 </div>
-                <h3>Fast Response</h3>
-                <p>Average response time under 30 minutes, guaranteed or your next service is free.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-map-marked-alt"></i>
-                </div>
-                <h3>Nationwide Coverage</h3>
-                <p>Service available in all 50 states with our network of 5,000+ certified providers.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-                <h3>No Hidden Fees</h3>
-                <p>What you see is what you pay. No surprise charges or service call fees.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3>24/7 Support</h3>
-                <p>Real humans answer your calls anytime, day or night.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Vetted Providers</h3>
-                <p>All service providers are background-checked and rated 4.5+ stars.</p>
+                <h3>Fast Towing Service</h3>
+                <p>From 5-mile tows to 100-mile long-distance transport, we've got your vehicle covered with our network of certified tow operators.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-car-battery"></i>
                 </div>
-                <h3>Battery Service</h3>
-                <p>On-the-spot testing and replacement with premium batteries at member discounts.</p>
+                <h3>Jump Starts</h3>
+                <p>Dead battery? Our technicians will get you back on the road fast, with optional on-the-spot battery replacement at member discounts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <h3>Lockout Service</h3>
+                <p>Locked your keys in the car? Our specialists use professional tools to get you back in without damage to your vehicle.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tire"></i>
+                </div>
+                <h3>Flat Tire Changes</h3>
+                <p>Don't struggle with that flat - we'll change it for you safely, even if you don't have a spare (we'll tow you to the nearest shop).</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-gas-pump"></i>
+                </div>
+                <h3>Fuel Delivery</h3>
+                <p>Ran out of gas? We'll bring you enough to get to the nearest station. Plus members get fuel delivery credits.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3>24/7 Dispatch</h3>
+                <p>Real humans answer your call anytime - no automated systems. We stay on the line until help arrives.</p>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Pricing Section - 4 Tiers -->
     <section class="pricing" id="pricing">
         <div class="section-title">
-            <h2>Simple, Affordable Plans</h2>
-            <p>Choose the coverage that fits your needs and budget</p>
+            <h2>Simple, Transparent Pricing</h2>
+            <p>Choose the protection level that fits your needs and budget</p>
         </div>
         <div class="pricing-grid">
             <div class="pricing-card">
@@ -732,7 +945,7 @@
                 <a href="#signup" class="cta-button">Get Started</a>
             </div>
             <div class="pricing-card popular">
-                <div class="popular-badge">MOST POPULAR</div>
+                <div class="popular-badge">Most Popular</div>
                 <h3>Plus</h3>
                 <div class="price">$14.99 <span>/month</span></div>
                 <ul class="pricing-features">
@@ -760,122 +973,23 @@
                 </ul>
                 <a href="#signup" class="cta-button">Get Started</a>
             </div>
-        </div>
-        <div style="text-align: center; margin-top: 30px;">
-            <p><strong>Save 15%</strong> when you pay annually. Switch anytime.</p>
-        </div>
-    </section>
-
-    <!-- Signup Form with Square Payment -->
-    <section class="signup-form" id="signup">
-        <div class="form-container">
-            <div class="form-header">
-                <h2>Join Instant Arrival Today</h2>
-                <p>Complete this form to start your membership</p>
+            <div class="pricing-card">
+                <h3>VIP</h3>
+                <div class="price">$29.99 <span>/month</span></div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check"></i> 100-mile towing</li>
+                    <li><i class="fas fa-check"></i> All Premium services</li>
+                    <li><i class="fas fa-check"></i> $50 fuel credit</li>
+                    <li><i class="fas fa-check"></i> Extreme winching</li>
+                    <li><i class="fas fa-check"></i> $500 trip interruption</li>
+                    <li><i class="fas fa-check"></i> 20% battery discount</li>
+                    <li><i class="fas fa-check"></i> Priority dispatch</li>
+                </ul>
+                <a href="#signup" class="cta-button">Get Started</a>
             </div>
-            <div class="form-body">
-                <form id="membership-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="first-name">First Name</label>
-                            <input type="text" id="first-name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="last-name">Last Name</label>
-                            <input type="text" id="last-name" class="form-control" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="address">Street Address</label>
-                        <input type="text" id="address" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="city">City</label>
-                            <input type="text" id="city" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="state">State</label>
-                            <select id="state" class="form-control" required>
-                                <option value="">Select State</option>
-                                <option value="AL">Alabama</option>
-                                <option value="AK">Alaska</option>
-                                <!-- All other states -->
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="zip">ZIP Code</label>
-                            <input type="text" id="zip" class="form-control" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group plan-selector">
-                        <label>Select Your Plan</label>
-                        <div class="plan-options">
-                            <div class="plan-option" data-plan="basic">
-                                <h4>Basic</h4>
-                                <div class="price">$8.99/mo</div>
-                            </div>
-                            <div class="plan-option selected" data-plan="plus">
-                                <h4>Plus</h4>
-                                <div class="price">$14.99/mo</div>
-                            </div>
-                            <div class="plan-option" data-plan="premium">
-                                <h4>Premium</h4>
-                                <div class="price">$19.99/mo</div>
-                            </div>
-                        </div>
-                        <input type="hidden" id="selected-plan" name="plan" value="plus">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id="annual-billing">
-                            Get 15% discount with annual billing
-                        </label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="vehicle-info">Vehicle Information (Make, Model, Year)</label>
-                        <input type="text" id="vehicle-info" class="form-control" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="license-plate">License Plate Number</label>
-                        <input type="text" id="license-plate" class="form-control" required>
-                    </div>
-                    
-                    <!-- Square Payment Section -->
-                    <div class="form-group">
-                        <h3>Payment Information</h3>
-                        <div id="sq-card-container"></div>
-                        <input type="hidden" id="card-nonce" name="nonce">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>
-                            <input type="checkbox" id="terms-agreement" required>
-                            I agree to the <a href="#" target="_blank">Terms of Service</a>
-                        </label>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn" id="submit-payment">
-                        Start Membership
-                    </button>
-                </form>
-            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <p><strong>Save 15%</strong> when you pay annually. Cancel anytime with no fees.</p>
         </div>
     </section>
 
@@ -883,30 +997,42 @@
     <section class="testimonials" id="testimonials">
         <div class="section-title">
             <h2>What Our Members Say</h2>
-            <p>Don't just take our word for it</p>
+            <p>Thousands of drivers trust Instant Arrival every day</p>
         </div>
         <div class="testimonial-slider">
             <div class="testimonial-card">
                 <div class="testimonial-text">
-                    "I was stranded on the highway at midnight with a flat tire. Instant Arrival had someone to me in 22 minutes. The service was professional and fast. Worth every penny of my membership!"
+                    "I was stranded on I-95 at 2 AM with a blown tire. Instant Arrival had a truck to me in 24 minutes - faster than they promised! The driver was professional and had me back on the road before I knew it. This service pays for itself in peace of mind."
                 </div>
                 <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah J." class="author-img">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Michelle R." class="author-img">
                     <div class="author-info">
-                        <h4>Sarah J.</h4>
-                        <p>Premium Member since 2021</p>
+                        <h4>Michelle R.</h4>
+                        <p>Premium Member • Dallas, TX</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-text">
-                    "As a rideshare driver, I can't afford downtime. When my battery died between rides, Instant Arrival got me back on the road faster than any other service I've tried."
+                    "As an Uber driver, I can't afford breakdowns. When my alternator died during peak hours, Instant Arrival's VIP priority dispatch got me a tow in 18 minutes. They even arranged a discounted rental while my car was in the shop. Unmatched service!"
                 </div>
                 <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marcus T." class="author-img">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James T." class="author-img">
                     <div class="author-info">
-                        <h4>Marcus T.</h4>
-                        <p>Plus Member since 2022</p>
+                        <h4>James T.</h4>
+                        <p>VIP Member • Chicago, IL</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    "The 100-mile towing saved me $400 when my RV broke down in rural Arizona. The driver specialized in RV towing and treated my rig with care. Worth every penny of the VIP membership - I'll never travel without it again."
+                </div>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Linda P." class="author-img">
+                    <div class="author-info">
+                        <h4>Linda P.</h4>
+                        <p>VIP Member • Phoenix, AZ</p>
                     </div>
                 </div>
             </div>
@@ -917,7 +1043,7 @@
     <section class="faq" id="faq">
         <div class="section-title">
             <h2>Frequently Asked Questions</h2>
-            <p>Get answers to common questions</p>
+            <p>Everything you need to know about Instant Arrival</p>
         </div>
         <div class="accordion">
             <div class="accordion-item">
@@ -927,217 +1053,4 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-content-inner">
-                        <p>Our average response time is under 30 minutes in urban and suburban areas. In rural locations, it may take slightly longer depending on provider availability. If we can't meet our 30-minute guarantee, your next service call is free.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>Are there any activation fees or hidden charges?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-content-inner">
-                        <p>No. Unlike some competitors, we don't charge activation fees or service call fees. The price you see is what you pay, with no surprises.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>Can I cancel my membership anytime?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-content-inner">
-                        <p>Yes! You can cancel anytime with no penalty. We'll refund any unused portion of annual plans.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-about">
-                <a href="#" class="footer-logo">
-                    <i class="fas fa-truck-pickup"></i>
-                    Instant Arrival
-                </a>
-                <p>24/7 nationwide roadside assistance you can count on. Average response time under 30 minutes guaranteed.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#testimonials">Reviews</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contact Us</h3>
-                <p><i class="fas fa-phone"></i> (800) 555-1234</p>
-                <p><i class="fas fa-envelope"></i> support@instantarrival.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Roadside Ave, Dallas, TX 75201</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2023 Instant Arrival Roadside Assistance. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize Square Payment Form
-        const paymentForm = new SqPaymentForm({
-            // REPLACE THESE WITH YOUR SQUARE CREDENTIALS:
-            applicationId: 'sandbox-sq0idb-YourSandboxAppId', // Sandbox Application ID
-            locationId: 'YourLocationID', // From Square Dashboard
-            inputClass: 'sq-input',
-            inputStyles: [{
-                fontSize: '16px',
-                padding: '12px',
-                placeholderColor: '#6C757D'
-            }],
-            cardNumber: { elementId: 'sq-card-number', placeholder: 'Card Number' },
-            cvv: { elementId: 'sq-cvv', placeholder: 'CVV' },
-            expirationDate: { elementId: 'sq-expiration-date', placeholder: 'MM/YY' },
-            postalCode: { elementId: 'sq-postal-code', placeholder: 'ZIP' },
-            callbacks: {
-                methodsSupported: (methods) => {
-                    if (methods.card) {
-                        document.getElementById('sq-card-container').style.display = 'block';
-                    }
-                },
-                createPaymentRequest: () => {
-                    const plan = document.getElementById('selected-plan').value;
-                    const isAnnual = document.getElementById('annual-billing').checked;
-                    const amount = calculatePlanAmount(plan, isAnnual);
-                    return {
-                        currencyCode: "USD",
-                        total: {
-                            label: "Instant Arrival Membership",
-                            amount: amount.toString(),
-                            pending: false
-                        }
-                    };
-                },
-                cardNonceResponseReceived: (errors, nonce) => {
-                    if (errors) {
-                        console.error('Payment error:', errors);
-                        alert('Payment error: ' + errors.map(e => e.message).join(', '));
-                        document.getElementById('submit-payment').disabled = false;
-                        return;
-                    }
-                    document.getElementById('card-nonce').value = nonce;
-                    submitMembershipForm();
-                }
-            }
-        });
-
-        // Calculate plan amount
-        function calculatePlanAmount(plan, isAnnual) {
-            const prices = {
-                basic: 8.99,
-                plus: 14.99,
-                premium: 19.99
-            };
-            let amount = prices[plan];
-            if (isAnnual) amount = (amount * 12) * 0.85; // 15% annual discount
-            return amount.toFixed(2);
-        }
-
-        // Form submission handler
-        document.getElementById('membership-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('submit-payment').disabled = true;
-            
-            if (!validateForm()) {
-                document.getElementById('submit-payment').disabled = false;
-                return;
-            }
-            
-            paymentForm.requestCardNonce();
-        });
-
-        // Form validation
-        function validateForm() {
-            const required = ['first-name', 'last-name', 'email', 'phone', 'address', 
-                            'city', 'state', 'zip', 'vehicle-info', 'license-plate'];
-            for (const fieldId of required) {
-                const field = document.getElementById(fieldId);
-                if (!field.value.trim()) {
-                    alert(`Please fill in ${field.placeholder || field.name}`);
-                    field.focus();
-                    return false;
-                }
-            }
-            if (!document.getElementById('terms-agreement').checked) {
-                alert('Please agree to the Terms of Service');
-                return false;
-            }
-            return true;
-        }
-
-        // Submit membership data
-        function submitMembershipForm() {
-            const formData = {
-                firstName: document.getElementById('first-name').value,
-                lastName: document.getElementById('last-name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                address: document.getElementById('address').value,
-                city: document.getElementById('city').value,
-                state: document.getElementById('state').value,
-                zip: document.getElementById('zip').value,
-                plan: document.getElementById('selected-plan').value,
-                annualBilling: document.getElementById('annual-billing').checked,
-                vehicle: document.getElementById('vehicle-info').value,
-                licensePlate: document.getElementById('license-plate').value,
-                paymentNonce: document.getElementById('card-nonce').value
-            };
-            
-            console.log('Form data ready for backend:', formData);
-            alert('Demo: Payment processed! In production, this would call your backend API.');
-            
-            // Reset form
-            document.getElementById('membership-form').reset();
-            document.getElementById('submit-payment').disabled = false;
-        }
-
-        // Plan selection
-        document.querySelectorAll('.plan-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.plan-option').forEach(opt => 
-                    opt.classList.remove('selected'));
-                this.classList.add('selected');
-                document.getElementById('selected-plan').value = 
-                    this.getAttribute('data-plan');
-            });
-        });
-
-        // Accordion functionality
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', function() {
-                const item = this.parentElement;
-                item.classList.toggle('active');
-                
-                // Close other open items
-                document.querySelectorAll('.accordion-item').forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-            });
-        });
-
-        // Initialize payment form
-        paymentForm.build();
-    </script>
-</body>
-</html>
+                        <p>Our <strong>average response time is under 30 minutes</strong
