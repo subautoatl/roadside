@@ -1455,21 +1455,21 @@
 
         // FAQ Accordion
         document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const accordionItem = header.parentElement;
-                const isActive = accordionItem.classList.contains('active');
-                
-                // Close all items first
-                document.querySelectorAll('.accordion-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    accordionItem.classList.add('active');
-                }
-            });
+        header.addEventListener('click', () => {
+        const accordionItem = header.parentElement;
+        const isActive = accordionItem.classList.contains('active');
+        
+        // First close all items
+        document.querySelectorAll('.accordion-item').forEach(item => {
+            item.classList.remove('active');
         });
+        
+        // Then open clicked item if it was closed
+        if (!isActive) {
+            accordionItem.classList.add('active');
+        }
+    });
+});
 
         // Initialize payment form
         paymentForm.build();
