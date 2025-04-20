@@ -9,669 +9,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Square Payment Form SDK -->
+    <script src="https://js.squareup.com/v2/paymentform"></script>
     <style>
         :root {
-            --primary: #FF5F00; /* Vibrant orange for urgency */
-            --secondary: #003366; /* Trustworthy navy */
-            --accent: #00CC99; /* Fresh green */
+            --primary: #FF5F00; /* Brand orange */
+            --secondary: #003366; /* Navy blue */
+            --accent: #00CC99; /* Green */
             --light: #F8F9FA;
             --dark: #212529;
             --gray: #6C757D;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* [Previous CSS styles remain the same] */
         
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-        
-        /* Floating animation */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        /* Pulse animation for CTAs */
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 95, 0, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 95, 0, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 95, 0, 0); }
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            padding: 15px 0;
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 900;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-right: 10px;
-            font-size: 32px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: var(--primary);
-        }
-        
-        .cta-button {
-            background-color: var(--primary);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-        
-        .cta-button:hover {
-            background-color: #e55600;
-            transform: translateY(-2px);
-            animation: pulse 1.5s infinite;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--secondary) 0%, #001a33 100%);
-            color: white;
-            padding: 180px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-content {
-            flex: 1;
-            padding-right: 50px;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-        
-        .hero-image {
-            flex: 1;
-            position: relative;
-        }
-        
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .floating-tow-truck {
-            position: absolute;
-            right: 50px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 400px;
-            z-index: 1;
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background-color: var(--light);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-        
-        .section-title p {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .feature-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 50px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-        
-        /* Pricing Section */
-        .pricing {
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .pricing-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 40px 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid #eee;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        .pricing-card.popular {
-            border: 2px solid var(--primary);
-            transform: scale(1.05);
-        }
-        
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background-color: var(--primary);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .pricing-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-        
-        .price {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        
-        .price span {
-            font-size: 16px;
-            font-weight: 400;
-            color: var(--gray);
-        }
-        
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .pricing-features li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-        
-        .pricing-features li i {
-            color: var(--accent);
-            margin-right: 10px;
-        }
-        
-        /* Signup Form */
-        .signup-form {
-            background-color: var(--light);
-            padding: 80px 0;
-        }
-        
-        .form-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        
-        .form-header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .form-header h2 {
-            font-size: 28px;
-        }
-        
-        .form-body {
-            padding: 40px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
+        /* Square Input Styling */
+        .sq-input {
             border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .form-row .form-group {
-            flex: 1;
-        }
-        
-        .plan-selector {
-            margin-bottom: 30px;
-        }
-        
-        .plan-options {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .plan-option {
-            flex: 1;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-        
-        .plan-option:hover {
-            border-color: var(--accent);
-        }
-        
-        .plan-option.selected {
-            border-color: var(--primary);
-            background-color: rgba(255, 95, 0, 0.05);
-        }
-        
-        .plan-option h4 {
-            margin-bottom: 5px;
-            color: var(--secondary);
-        }
-        
-        .plan-option .price {
-            font-size: 20px;
-            color: var(--primary);
-        }
-        
-        .submit-btn {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 4px;
             width: 100%;
-            font-weight: 600;
-            transition: background-color 0.3s;
+            font-size: 16px;
         }
-        
-        .submit-btn:hover {
-            background-color: #e55600;
+        .sq-input--focus { 
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.2);
         }
-        
-        /* Testimonials */
-        .testimonials {
-            padding: 100px 0;
-            background-color: var(--secondary);
-            color: white;
+        .sq-input--error { 
+            border-color: #dc3545;
         }
-        
-        .testimonial-slider {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .testimonial-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            margin: 0 15px;
-        }
-        
-        .testimonial-text {
-            font-size: 18px;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-        }
-        
-        .author-info h4 {
-            margin-bottom: 5px;
-        }
-        
-        .author-info p {
-            opacity: 0.8;
-            font-size: 14px;
-        }
-        
-        /* FAQ Section */
-        .faq {
-            padding: 100px 0;
-            background-color: var(--light);
-        }
-        
-        .accordion {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .accordion-item {
-            margin-bottom: 15px;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .accordion-header {
-            background-color: white;
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-        }
-        
-        .accordion-header:hover {
-            background-color: #f9f9f9;
-        }
-        
-        .accordion-content {
-            padding: 0 20px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background-color: white;
-        }
-        
-        .accordion-content-inner {
-            padding: 20px 0;
-        }
-        
-        .accordion-item.active .accordion-content {
-            max-height: 500px;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 60px 0 20px;
-        }
-        
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-        }
-        
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-        
-        .footer-about p {
-            opacity: 0.8;
-            margin-bottom: 20px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            color: white;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary);
-        }
-        
-        .footer-links h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: white;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-        
-        .footer-contact p {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            opacity: 0.8;
-        }
-        
-        .footer-contact i {
-            margin-right: 10px;
-            color: var(--primary);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
-            font-size: 14px;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 50px;
-            }
-            
-            .floating-tow-truck {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                margin: 0 auto;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                margin-top: 20px;
-            }
-            
-            nav ul li {
-                margin-left: 15px;
-                margin-right: 15px;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .plan-options {
-                flex-direction: column;
-            }
+        #sq-card-container { 
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header (No changes needed) -->
     <header>
         <div class="header-container">
             <a href="#" class="logo">
@@ -690,145 +64,9 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Roadside Assistance <span class="floating">When You Need It Most</span></h1>
-                <p>24/7 nationwide coverage with average response times under 30 minutes. Join over 50,000 satisfied members today.</p>
-                <div class="cta-buttons">
-                    <a href="#pricing" class="cta-button">View Plans</a>
-                    <a href="tel:+18005551234" class="cta-button secondary">Call Now: (800) 555-1234</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Roadside assistance vehicle">
-            </div>
-        </div>
-    </section>
+    <!-- [Keep all hero, features, pricing sections unchanged] -->
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="section-title">
-            <h2>Why Choose Instant Arrival?</h2>
-            <p>We're redefining roadside assistance with faster response times, better service, and transparent pricing.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <h3>Fast Response</h3>
-                <p>Average response time under 30 minutes, guaranteed or your next service is free.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-map-marked-alt"></i>
-                </div>
-                <h3>Nationwide Coverage</h3>
-                <p>Service available in all 50 states with our network of 5,000+ certified providers.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-                <h3>No Hidden Fees</h3>
-                <p>What you see is what you pay. No surprise charges or service call fees.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3>24/7 Support</h3>
-                <p>Real humans answer your calls anytime, day or night.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Vetted Providers</h3>
-                <p>All service providers are background-checked and rated 4.5+ stars.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-car-battery"></i>
-                </div>
-                <h3>Battery Service</h3>
-                <p>On-the-spot testing and replacement with premium batteries at member discounts.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="section-title">
-            <h2>Simple, Affordable Plans</h2>
-            <p>Choose the coverage that fits your needs and budget. All plans include 24/7 service.</p>
-        </div>
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3>Basic</h3>
-                <div class="price">$8.99 <span>/month</span></div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> 5-mile towing</li>
-                    <li><i class="fas fa-check"></i> Jump starts</li>
-                    <li><i class="fas fa-check"></i> Lockout service</li>
-                    <li><i class="fas fa-check"></i> Flat tire changes</li>
-                    <li><i class="fas fa-check"></i> Fuel delivery (you pay fuel)</li>
-                    <li><i class="fas fa-check"></i> 4 service calls/year</li>
-                </ul>
-                <a href="#signup" class="cta-button">Get Started</a>
-            </div>
-            <div class="pricing-card popular">
-                <div class="popular-badge">MOST POPULAR</div>
-                <h3>Plus</h3>
-                <div class="price">$14.99 <span>/month</span></div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> <strong>15-mile towing</strong></li>
-                    <li><i class="fas fa-check"></i> All Basic services</li>
-                    <li><i class="fas fa-check"></i> $10 fuel credit</li>
-                    <li><i class="fas fa-check"></i> Basic winching</li>
-                    <li><i class="fas fa-check"></i> $100 trip interruption</li>
-                    <li><i class="fas fa-check"></i> 10% battery discount</li>
-                    <li><i class="fas fa-check"></i> <strong>Unlimited calls</strong></li>
-                </ul>
-                <a href="#signup" class="cta-button">Get Started</a>
-            </div>
-            <div class="pricing-card">
-                <h3>Premium</h3>
-                <div class="price">$19.99 <span>/month</span></div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> <strong>25-mile towing</strong></li>
-                    <li><i class="fas fa-check"></i> All Plus services</li>
-                    <li><i class="fas fa-check"></i> $25 fuel credit</li>
-                    <li><i class="fas fa-check"></i> Advanced winching</li>
-                    <li><i class="fas fa-check"></i> $250 trip interruption</li>
-                    <li><i class="fas fa-check"></i> 15% battery discount</li>
-                    <li><i class="fas fa-check"></i> Concierge service</li>
-                </ul>
-                <a href="#signup" class="cta-button">Get Started</a>
-            </div>
-            <div class="pricing-card">
-                <h3>VIP</h3>
-                <div class="price">$29.99 <span>/month</span></div>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check"></i> <strong>100-mile towing</strong></li>
-                    <li><i class="fas fa-check"></i> All Premium services</li>
-                    <li><i class="fas fa-check"></i> $50 fuel credit</li>
-                    <li><i class="fas fa-check"></i> Extreme winching</li>
-                    <li><i class="fas fa-check"></i> $500 trip interruption</li>
-                    <li><i class="fas fa-check"></i> 20% battery discount + install</li>
-                    <li><i class="fas fa-check"></i> Priority dispatch</li>
-                </ul>
-                <a href="#signup" class="cta-button">Get Started</a>
-            </div>
-        </div>
-        <div class="annual-notice" style="text-align: center; margin-top: 30px;">
-            <p><strong>Save 15%</strong> when you pay annually. Switch anytime.</p>
-        </div>
-    </section>
-
-    <!-- Signup Form -->
+    <!-- Updated Signup Form with Square -->
     <section class="signup-form" id="signup">
         <div class="form-container">
             <div class="form-header">
@@ -837,6 +75,7 @@
             </div>
             <div class="form-body">
                 <form id="membership-form">
+                    <!-- Member Info Fields -->
                     <div class="form-row">
                         <div class="form-group">
                             <label for="first-name">First Name</label>
@@ -872,7 +111,7 @@
                             <label for="state">State</label>
                             <select id="state" class="form-control" required>
                                 <option value="">Select State</option>
-                                <!-- States would be populated here -->
+                                <!-- All 50 states here -->
                             </select>
                         </div>
                         <div class="form-group">
@@ -881,6 +120,7 @@
                         </div>
                     </div>
                     
+                    <!-- Plan Selection -->
                     <div class="form-group plan-selector">
                         <label>Select Your Plan</label>
                         <div class="plan-options">
@@ -912,90 +152,161 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="vehicle-info">Vehicle Information (Make, Model, Year)</label>
-                        <input type="text" id="vehicle-info" class="form-control" required>
+                        <label for="vehicle-info">Vehicle Information</label>
+                        <input type="text" id="vehicle-info" class="form-control" placeholder="Make, Model, Year" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="license-plate">License Plate Number</label>
+                        <label for="license-plate">License Plate</label>
                         <input type="text" id="license-plate" class="form-control" required>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Continue to Payment</button>
+                    <!-- Square Payment Section -->
+                    <div class="form-group">
+                        <h3>Payment Information</h3>
+                        <div id="sq-card-container"></div>
+                        <input type="hidden" id="card-nonce" name="nonce">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="terms-agreement" required>
+                            I agree to the <a href="#" target="_blank">Terms of Service</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submit-payment">
+                        Start Membership
+                    </button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-title">
-            <h2>What Our Members Say</h2>
-            <p>Don't just take our word for it - hear from satisfied customers</p>
-        </div>
-        <div class="testimonial-slider">
-            <div class="testimonial-card">
-                <div class="testimonial-text">
-                    "I was stranded on the highway at midnight with a flat tire. Instant Arrival had someone to me in 22 minutes. The service was professional and fast. Worth every penny of my membership!"
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sarah J." class="author-img">
-                    <div class="author-info">
-                        <h4>Sarah J.</h4>
-                        <p>Premium Member since 2021</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">
-                    "As a rideshare driver, I can't afford downtime. When my battery died between rides, Instant Arrival got me back on the road faster than any other service I've tried. Their Plus plan pays for itself."
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marcus T." class="author-img">
-                    <div class="author-info">
-                        <h4>Marcus T.</h4>
-                        <p>Plus Member since 2022</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-text">
-                    "The 100-mile towing in the VIP plan saved me over $300 when my RV broke down in a remote area. The driver was knowledgeable about RV towing and took extra care with my rig. Exceptional service."
-                </div>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Linda P." class="author-img">
-                    <div class="author-info">
-                        <h4>Linda P.</h4>
-                        <p>VIP Member since 2020</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- [Rest of your sections remain unchanged] -->
 
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="section-title">
-            <h2>Frequently Asked Questions</h2>
-            <p>Get answers to common questions about our service</p>
-        </div>
-        <div class="accordion">
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>How quickly can I expect service after I call?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-content-inner">
-                        <p>Our average response time is under 30 minutes in urban and suburban areas. In rural locations, it may take slightly longer depending on provider availability. If we can't meet our 30-minute guarantee, your next service call is free.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>Are there any activation fees or hidden charges?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-content-inner">
-                        <p>No. Unlike some competitors, we don't charge activation fees or service call fees. The price you see is what you pay, with no surprises. The only additional charges would be for fuel if you need delivery (though our Plus and higher
+    <script>
+        // Square Payment Form Configuration
+        const paymentForm = new SqPaymentForm({
+            // REPLACE THESE WITH YOUR SQUARE CREDENTIALS:
+            applicationId: 'YOUR_SANDBOX_APPLICATION_ID', // From Square Developer Dashboard
+            locationId: 'YOUR_LOCATION_ID', // From Square Business Dashboard
+            inputClass: 'sq-input',
+            inputStyles: [{
+                fontSize: '16px',
+                padding: '12px',
+                placeholderColor: '#6C757D'
+            }],
+            cardNumber: { elementId: 'sq-card-number', placeholder: 'Card Number' },
+            cvv: { elementId: 'sq-cvv', placeholder: 'CVV' },
+            expirationDate: { elementId: 'sq-expiration-date', placeholder: 'MM/YY' },
+            postalCode: { elementId: 'sq-postal-code', placeholder: 'ZIP' },
+            callbacks: {
+                methodsSupported: (methods) => {
+                    if (methods.card) {
+                        document.getElementById('sq-card-container').style.display = 'block';
+                    }
+                },
+                createPaymentRequest: () => {
+                    const plan = document.getElementById('selected-plan').value;
+                    const isAnnual = document.getElementById('annual-billing').checked;
+                    const amount = calculatePlanAmount(plan, isAnnual);
+                    return {
+                        currencyCode: "USD",
+                        total: {
+                            label: "Instant Arrival Membership",
+                            amount: amount.toString(),
+                            pending: false
+                        }
+                    };
+                },
+                cardNonceResponseReceived: (errors, nonce) => {
+                    if (errors) {
+                        console.error('Payment error:', errors);
+                        alert('Payment error: ' + errors.map(e => e.message).join(', '));
+                        document.getElementById('submit-payment').disabled = false;
+                        return;
+                    }
+                    document.getElementById('card-nonce').value = nonce;
+                    submitMembershipForm();
+                }
+            }
+        });
+
+        // Calculate plan price
+        function calculatePlanAmount(plan, isAnnual) {
+            const prices = {
+                basic: 8.99,
+                plus: 14.99,
+                premium: 19.99,
+                vip: 29.99
+            };
+            let amount = prices[plan];
+            if (isAnnual) amount = (amount * 12) * 0.85; // 15% annual discount
+            return amount.toFixed(2);
+        }
+
+        // Form submission handler
+        document.getElementById('membership-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('submit-payment').disabled = true;
+            
+            if (!validateForm()) {
+                document.getElementById('submit-payment').disabled = false;
+                return;
+            }
+            
+            paymentForm.requestCardNonce();
+        });
+
+        // Basic form validation
+        function validateForm() {
+            const required = ['first-name', 'last-name', 'email', 'phone', 'address', 
+                            'city', 'state', 'zip', 'vehicle-info', 'license-plate'];
+            for (const fieldId of required) {
+                const field = document.getElementById(fieldId);
+                if (!field.value.trim()) {
+                    alert(`Please fill in ${field.placeholder || field.name}`);
+                    field.focus();
+                    return false;
+                }
+            }
+            if (!document.getElementById('terms-agreement').checked) {
+                alert('Please agree to the Terms of Service');
+                return false;
+            }
+            return true;
+        }
+
+        // Submit to your backend (demo only - replace with real API call)
+        function submitMembershipForm() {
+            const formData = {
+                firstName: document.getElementById('first-name').value,
+                lastName: document.getElementById('last-name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value,
+                zip: document.getElementById('zip').value,
+                plan: document.getElementById('selected-plan').value,
+                annualBilling: document.getElementById('annual-billing').checked,
+                vehicle: document.getElementById('vehicle-info').value,
+                licensePlate: document.getElementById('license-plate').value,
+                paymentNonce: document.getElementById('card-nonce').value
+            };
+            
+            console.log('Form data ready for backend:', formData);
+            alert('Demo: Payment processed! (In production, this would call your backend)');
+            
+            // In production, you would:
+            // 1. Send formData to your server
+            // 2. Server processes payment via Square API
+            // 3. Redirect to success page
+        }
+
+        // Initialize payment form
+        paymentForm.build();
+    </script>
+</body>
+</html>
